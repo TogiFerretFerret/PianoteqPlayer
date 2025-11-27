@@ -16,7 +16,10 @@ shutil.copy(f"C:\\Users\\river\\USACOTESTS\\tmp\\{midi_file}", f"C:\\Users\\rive
 os.remove(f"C:\\Users\\river\\USACOTESTS\\tmp\\{midi_file}")
 # launch new process with this (nushell syntax)
 # `C:\Downloads\Pianoteq 9\Pianoteq 9.exe` --preset "NY Steinway Model D" --midi MIDI_PATH --play
-cmdp=[r"C:\Downloads\Pianoteq 9\Pianoteq 9.exe", "--preset", "NY Steinway Model D", "--midi", f"C:\\Users\\river\\USACOTESTS\\midis\\{midi_file}", "--play"]
+cmdp=[r"C:\Downloads\Pianoteq 9\Pianoteq 9.exe", "--preset", "NY Steinway Model D", "--midi", f"C:\\Users\\river\\USACOTESTS\\midis\\{midi_file}"]
 if not EXPORT_FLAG:
     cmdp.append("--headless")
+    cmdp.append("--play-and-quit")
+else:
+    cmdp.append("--play")
 subprocess.run(cmdp)
